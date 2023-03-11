@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{A6CAD83E-F35
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{B8339F2F-82B4-4C9E-97D7-950A8DBAC737}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuentaUserControl", "CuentaUserControl\CuentaUserControl.csproj", "{6A39639F-5C54-47C2-8B74-DBA7D2F671B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{81D79F0C-C9F9-4AD5-B453-BC65B6C749C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81D79F0C-C9F9-4AD5-B453-BC65B6C749C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81D79F0C-C9F9-4AD5-B453-BC65B6C749C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A39639F-5C54-47C2-8B74-DBA7D2F671B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A39639F-5C54-47C2-8B74-DBA7D2F671B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A39639F-5C54-47C2-8B74-DBA7D2F671B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A39639F-5C54-47C2-8B74-DBA7D2F671B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

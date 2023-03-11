@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <RootNamespace>AppBanco_V1._1</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,8 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BankClassSourcesDLL\BankClassSourcesDLL.csproj" />
-    <ProjectReference Include="..\ClienteUserControl\ClienteUserControl.csproj" />
-    <ProjectReference Include="..\CuentaUserControl\CuentaUserControl.csproj" />
   </ItemGroup>
 
 </Project>

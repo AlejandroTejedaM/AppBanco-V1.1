@@ -1,6 +1,7 @@
 using AppBanco_V1._1;
 using BankClassSourcesDLL.Clases;
 using ClienteUserControl;
+using System.Windows.Forms;
 
 namespace AppBank_V1._1
 {
@@ -59,12 +60,33 @@ namespace AppBank_V1._1
             lectura.Close();
         }
 
+        public void ComprobarArchivoCuenta(Cliente cliente)
+        {
+            //comprueba si existe el archivo con el mismo nombre del Id del cliente
+            //este guarda todas sus cuentas cabe recalcar
+            if (File.Exists(@"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt") == false)
+            {
+                //En caso que no exista se hace uso del savefiledialog
+                saveFileDialog1.FileName = @"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt";
+                Writer escritura = new Writer(saveFileDialog1.FileName, true);
+                escritura.Dispose();
+            }
+        }
         public ClienteUserControl.ClienteUserControl getControlCliente(Cliente cliente)
         {
             ClienteUserControl.ClienteUserControl controlCliente = new ClienteUserControl.ClienteUserControl();
             controlCliente.Asignar(cliente);
             controlCliente.BtnMostrarCuentasClick += ControlCliente_BtnMostrarCuentasClick;
+            ComprobarArchivoCuenta(cliente);
+            controlCliente.Tag = cliente;
             return controlCliente;
+        }
+        private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)
+        {
+            ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
+            Cliente cliente = control.Tag as Cliente;
+            frmCuentas frmCuentas = new frmCuentas();
+            frmCuentas.ShowDialog();
         }
         private void btnAgregarCuenta_Click(object sender, EventArgs e)
         {
@@ -77,11 +99,6 @@ namespace AppBank_V1._1
             };
             listaClientes.AddCliente(clienteNuevo);
             flpClientes.Controls.Add(getControlCliente(clienteNuevo));
-        }
-
-        private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException("Aparece formulario de cuentas de esa persona");
         }
 
         private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)

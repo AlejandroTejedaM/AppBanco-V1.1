@@ -38,6 +38,7 @@
             label3 = new Label();
             label2 = new Label();
             Nombre = new Label();
+            saveFileDialog1 = new SaveFileDialog();
             SuspendLayout();
             // 
             // flpClientes
@@ -168,5 +169,6 @@
         private Label label3;
         private Label label2;
         private Label Nombre;
+        private SaveFileDialog saveFileDialog1;
     }
 }
