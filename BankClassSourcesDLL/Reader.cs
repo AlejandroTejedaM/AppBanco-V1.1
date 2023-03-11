@@ -1,39 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BankClassSourcesDLL
 {
-    public class Reader
+    public class Reader : IDisposable
     {
-        StreamReader reader;
+        private readonly StreamReader reader;
 
-        public Reader(string rute)
+        public Reader(StreamReader reader)
         {
-            reader = new StreamReader(rute);
+            this.reader = reader;
         }
 
         public string ReadAll(string rute)
         {
-            return reader.ReadToEnd();
+            try
+            {
+                return reader.ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return string.Empty;
+            }
         }
 
         public List<string> ReadByLine()
         {
             List<string> list = new List<string>();
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            try
             {
-                list.Add(line);
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
             }
             return list;
+
         }
 
         public void Close()
         {
-            reader.Close();
+            reader.Dispose();
+        }
+
+        public void Dispose()
+        {
+            reader.Dispose();
         }
     }
 }
