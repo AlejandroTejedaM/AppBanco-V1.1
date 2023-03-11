@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBank V1.1", "AppBanco V1.1\AppBank V1.1.csproj", "{143154B5-C912-424C-A76D-F3F78DCE4A87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBank V1.1", "AppBank V1.1\AppBank V1.1.csproj", "{143154B5-C912-424C-A76D-F3F78DCE4A87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
