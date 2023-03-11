@@ -3,12 +3,12 @@
     public class Reader : IDisposable
     {
         private readonly StreamReader reader;
-
         public Reader(StreamReader reader)
         {
             this.reader = reader;
         }
 
+        #region Metodos
         public string ReadAll(string rute)
         {
             try
@@ -21,7 +21,6 @@
                 return string.Empty;
             }
         }
-
         public List<string> ReadByLine()
         {
             List<string> list = new List<string>();
@@ -40,15 +39,15 @@
             return list;
 
         }
-
         public void Close()
         {
             reader.Dispose();
         }
-
         public void Dispose()
         {
             reader.Dispose();
         }
+        #endregion
+
     }
 }
