@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankClassSourcesDLL", "Bank
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClienteUserControl", "ClienteUserControl\ClienteUserControl.csproj", "{81D79F0C-C9F9-4AD5-B453-BC65B6C749C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controles", "Controles", "{2D82CE5B-3EC6-4B2F-8925-297ED240D040}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{A6CAD83E-F351-41C8-B1FA-1D6F6AB5F611}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{B8339F2F-82B4-4C9E-97D7-950A8DBAC737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +36,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{143154B5-C912-424C-A76D-F3F78DCE4A87} = {A6CAD83E-F351-41C8-B1FA-1D6F6AB5F611}
+		{615EB377-E99B-4A65-9E44-5CB77737CEED} = {B8339F2F-82B4-4C9E-97D7-950A8DBAC737}
+		{81D79F0C-C9F9-4AD5-B453-BC65B6C749C0} = {2D82CE5B-3EC6-4B2F-8925-297ED240D040}
+		{2D82CE5B-3EC6-4B2F-8925-297ED240D040} = {B8339F2F-82B4-4C9E-97D7-950A8DBAC737}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16872164-31BC-41D1-AAB5-FFEFEBCD7ECC}
