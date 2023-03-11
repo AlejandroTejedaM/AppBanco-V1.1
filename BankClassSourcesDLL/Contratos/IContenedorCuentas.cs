@@ -2,7 +2,7 @@
 {
     public interface IContenedorCuentas
     {
-        void Agregar(Cuenta cuenta);
+        void AddCuenta(Cuenta cuenta);
         List<Cuenta> GetCuentas();
     }
 }

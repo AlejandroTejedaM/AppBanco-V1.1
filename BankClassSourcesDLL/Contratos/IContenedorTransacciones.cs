@@ -2,7 +2,7 @@
 {
     public interface IContenedorTransacciones
     {
-        void Agregar(Transaccion cuenta);
+        void AddTransc(Transaccion cuenta);
         List<Transaccion> GetTransacciones();
     }
 }
