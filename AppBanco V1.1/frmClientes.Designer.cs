@@ -1,6 +1,6 @@
 ﻿namespace AppBanco_V1._1
 {
-    partial class Form1
+    partial class frmClientes
     {
         /// <summary>
         ///  Required designer variable.
