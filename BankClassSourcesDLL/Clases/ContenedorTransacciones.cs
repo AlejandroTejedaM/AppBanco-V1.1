@@ -25,6 +25,9 @@ namespace BankClassSourcesDLL.Clases
         {
             listaTransaccion.Clear();
         }
-
+        public bool vacio()
+        {
+            return listaTransaccion.Count == 0;
+        }
     }
 }

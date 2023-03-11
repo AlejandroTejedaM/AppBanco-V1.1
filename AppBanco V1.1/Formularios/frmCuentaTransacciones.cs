@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankClassSourcesDLL.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace AppBanco_V1._1
 {
     public partial class FrmCuentaTransacciones : Form
     {
-        public FrmCuentaTransacciones()
+        Cuenta cuenta;
+        public FrmCuentaTransacciones(Cuenta cuenta)
         {
             InitializeComponent();
+            this.cuenta = cuenta;
         }
     }
 }

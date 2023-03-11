@@ -10,102 +10,125 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AppBanco_V1._1
 {
     public partial class frmCuentas : Form
-    {   
+    {
         ContenedorCuentas listaCuentas;
-        Cliente Cliente;
+        Cliente cliente;
         public frmCuentas(Cliente cliente)
         {
             InitializeComponent();
-            this.Cliente = cliente;
+            this.cliente = cliente;
             listaCuentas = new ContenedorCuentas();
-            //Lectura();
-            //LlenarFlP();
+            Lectura();
+            LlenarFlP();
         }
 
         private void BtnAgregarCuenta_Click(object sender, EventArgs e)
         {
-            //Cuenta NuevaCuenta = new Cuenta()
-            //{
-            //    Nombre = txtNombre.Text,
-            //    Fecha = int.Parse(txtCuenta.Text),
-            //    NoCuenta = int.Parse(txtCuenta.Text),
-            //    Monto = Convert.ToChar(txtSexo.Text),
-            //    TipoTransaccion =
-            //};
-            //listaCuentas.AddCuenta(NuevaCuenta);
-            //flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
+            Cuenta NuevaCuenta = new Cuenta()
+            {
+                Nombre = txtNombre.Text,
+                Fecha = txtFecha.Text,
+                NoCuenta = int.Parse(txtCuenta.Text),
+                Monto = decimal.Parse(txtMonto.Text),
+                TipoTransaccion = true
+            };
+            listaCuentas.AddCuenta(NuevaCuenta);
+            flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
+        }
+        public CuentaControl getControlCuenta(Cuenta cuenta)
+        {
+            CuentaControl controlCliente = new CuentaControl();
+            controlCliente.Asignar(cuenta);
+            controlCliente.btnMovimientosClick += ControlCliente_btnMovimientosClick;
+            controlCliente.btnNueTransactClick += ControlCliente_btnNueTransactClick;
+            ComprobarArchivoCuenta(this.cliente);
+            controlCliente.Tag = cuenta;
+            return controlCliente;
         }
 
-        //public void LlenarFlP()
-        //{
-        //    if (!listaClientes.vacio())
-        //    {
-        //        foreach (var item in listaClientes.GetClientes())
-        //        {
-        //            Cliente cliente = item as Cliente;
-        //            flpClientes.Controls.Add(getControlCliente(cliente));
-        //        }
-        //    }
-        //}
-        //public void Escritura()
-        //{
-        //    if (flpClientes.Controls.Count != 0)
-        //    {
-        //        Writer esc = new Writer(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt", false);
-        //        foreach (var item in listaClientes.GetClientes())
-        //        {
-        //            //PictureBox pb = item as PictureBox;
-        //            //Cuenta cuenta = item as Cuenta;
-        //            esc.Write(item.ToString());
-        //        }
-        //        esc.Close();
-        //    }
-        //}
-        //public void Lectura()
-        //{
-        //    StreamReader lct = new StreamReader(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt");
-        //    Reader lectura = new Reader(lct);
-        //    string[] obtenido = lectura.ReadAll().Split("\n");
-        //    for (int i = 0; i < obtenido.Length - 1; i++)
-        //    {
-        //        string[] columas = obtenido[i].Split(",");
-        //        Cliente clienteArchivo = new Cliente()
-        //        {
-        //            Nombre = columas[0],
-        //            Id = int.Parse(columas[1]),
-        //            Edad = int.Parse(columas[2]),
-        //            Sexo = Convert.ToChar(columas[3]),
-        //        };
-        //        listaClientes.AddCliente(clienteArchivo);
-        //    }
-        //    lectura.Close();
-        //}
+        private void ControlCliente_btnNueTransactClick(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
-        //public void ComprobarArchivoCuenta(Cliente cliente)
-        //{
-        //    //comprueba si existe el archivo con el mismo nombre del Id del cliente
-        //    //este guarda todas sus cuentas cabe recalcar
-        //    if (File.Exists(@"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt") == false)
-        //    {
-        //        //En caso que no exista se hace uso del savefiledialog
-        //        saveFileDialog1.FileName = @"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt";
-        //        Writer escritura = new Writer(saveFileDialog1.FileName, true);
-        //        escritura.Dispose();
-        //    }
-        //}
-        //public CuentaControl getControlCuenta(Cuenta cuenta)
-        //{
-        //    ClienteUserControl.ClienteUserControl controlCliente = new ClienteUserControl.ClienteUserControl();
-        //    controlCliente.Asignar(cliente);
-        //    controlCliente.BtnMostrarCuentasClick += ControlCliente_BtnMostrarCuentasClick;
-        //    ComprobarArchivoCuenta(cliente);
-        //    controlCliente.Tag = cliente;
-        //    return controlCliente;
-        //}
+        private void ControlCliente_btnMovimientosClick(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LlenarFlP()
+        {
+            if (!listaCuentas.vacio())
+            {
+                foreach (var item in listaCuentas.GetCuentas())
+                {
+                    flpCuentas.Controls.Add(getControlCuenta(item));
+                }
+            }
+        }
+        public void Escritura()
+        {
+            if (flpCuentas.Controls.Count != 0)
+            {
+                Writer esc = new Writer(@"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt", false);
+                foreach (var item in listaCuentas.GetCuentas())
+                {
+                    //PictureBox pb = item as PictureBox;
+                    //Cuenta cuenta = item as Cuenta;
+                    esc.Write(item.ToString());
+                }
+                esc.Close();
+            }
+        }
+
+        public string rutaCuenta()
+        {
+            return @"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt";
+        }
+        public void Lectura()
+        {
+            StreamReader lct = new StreamReader(rutaCuenta());
+            Reader lectura = new Reader(lct);
+            string[] obtenido = lectura.ReadAll().Split("\n");
+            for (int i = 0; i < obtenido.Length - 1; i++)
+            {
+                string[] columas = obtenido[i].Split(",");
+                Cuenta cuentaArchivo = new Cuenta()
+                {
+                    Nombre = columas[0],
+                    NoCuenta = int.Parse(columas[1]),
+                    Fecha = columas[2],
+                    TipoTransaccion = bool.Parse(columas[3]),
+                    Monto = decimal.Parse(columas[4]),
+                };
+                listaCuentas.AddCuenta(cuentaArchivo);
+            }
+            lectura.Close();
+        }
+
+        public void ComprobarArchivoCuenta(Cliente cliente)
+        {
+            //comprueba si existe el archivo con el mismo nombre del Id del cliente
+            //este guarda todas sus cuentas cabe recalcar
+            if (File.Exists(rutaCuenta()) == false)
+            {
+                //En caso que no exista se hace uso del savefiledialog
+                saveFileDialog1.FileName = rutaCuenta();
+                Writer escritura = new Writer(saveFileDialog1.FileName, true);
+                escritura.Dispose();
+            }
+        }
+
+        private void frmCuentas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Escritura();
+        }
+
         //private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)
         //{
         //    ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
@@ -114,9 +137,5 @@ namespace AppBanco_V1._1
         //    frmCuentas.ShowDialog();
         //}
 
-        //private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    Escritura();
-        //}
     }
 }

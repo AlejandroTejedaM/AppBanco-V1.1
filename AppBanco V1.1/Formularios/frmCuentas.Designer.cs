@@ -38,6 +38,7 @@
             label2 = new Label();
             Nombre = new Label();
             flpCuentas = new FlowLayoutPanel();
+            saveFileDialog1 = new SaveFileDialog();
             SuspendLayout();
             // 
             // btnAgregarCuenta
@@ -151,6 +152,7 @@
             Controls.Add(flpCuentas);
             Name = "frmCuentas";
             Text = "CUENTAS";
+            FormClosing += frmCuentas_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +169,6 @@
         private Label label2;
         private Label Nombre;
         private FlowLayoutPanel flpCuentas;
+        private SaveFileDialog saveFileDialog1;
     }
 }

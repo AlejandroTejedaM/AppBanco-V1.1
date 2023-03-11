@@ -21,8 +21,7 @@ namespace AppBank_V1._1
             {
                 foreach (var item in listaClientes.GetClientes())
                 {
-                    Cliente cliente = item as Cliente;
-                    flpClientes.Controls.Add(getControlCliente(cliente));
+                    flpClientes.Controls.Add(getControlCliente(item));
                 }
             }
         }
