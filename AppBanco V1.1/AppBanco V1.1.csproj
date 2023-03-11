@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BankClassSourcesDLL\BankClassSourcesDLL.csproj" />
+    <ProjectReference Include="..\ClienteUserControl\ClienteUserControl.csproj" />
   </ItemGroup>
 
 </Project>

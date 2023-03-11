@@ -1,10 +1,11 @@
 ﻿using BankClassSourcesDLL.Contratos;
+using System.Collections.Generic;
 
 namespace BankClassSourcesDLL.Clases
 {
     public class ContenedorCuentas : IContenedorCuentas
     {
-        private List<Cuenta> listaCuentas;
+        private readonly List<Cuenta> listaCuentas;
 
         public ContenedorCuentas()
         {

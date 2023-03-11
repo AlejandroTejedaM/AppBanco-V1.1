@@ -4,7 +4,7 @@ namespace BankClassSourcesDLL.Clases
 {
     public class ContenedorTransacciones : IContenedorTransacciones
     {
-        private List<Transaccion> listaTransaccion;
+        private readonly List<Transaccion> listaTransaccion;
 
         public ContenedorTransacciones()
         {
