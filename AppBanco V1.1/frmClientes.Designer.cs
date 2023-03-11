@@ -1,4 +1,4 @@
-﻿namespace AppBanco_V1._1
+﻿namespace AppBank_V1._1
 {
     partial class frmClientes
     {
