@@ -42,22 +42,25 @@ namespace AppBank_V1._1
         }
         public void Lectura()
         {
-            StreamReader lct = new StreamReader(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt");
-            Reader lectura = new Reader(lct);
-            string[] obtenido = lectura.ReadAll().Split("\n");
-            for (int i = 0; i < obtenido.Length - 1; i++)
+            if (File.Exists(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt"))
             {
-                string[] columas = obtenido[i].Split(",");
-                Cliente clienteArchivo = new Cliente()
+                StreamReader lct = new StreamReader(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt");
+                Reader lectura = new Reader(lct);
+                string[] obtenido = lectura.ReadAll().Split("\n");
+                for (int i = 0; i < obtenido.Length - 1; i++)
                 {
-                    Nombre = columas[0],
-                    Id = int.Parse(columas[1]),
-                    Edad = int.Parse(columas[2]),
-                    Sexo = Convert.ToChar(columas[3]),
-                };
-                listaClientes.AddCliente(clienteArchivo);
+                    string[] columas = obtenido[i].Split(",");
+                    Cliente clienteArchivo = new Cliente()
+                    {
+                        Nombre = columas[0],
+                        Id = int.Parse(columas[1]),
+                        Edad = int.Parse(columas[2]),
+                        Sexo = Convert.ToChar(columas[3]),
+                    };
+                    listaClientes.AddCliente(clienteArchivo);
+                }
+                lectura.Close();
             }
-            lectura.Close();
         }
 
         public void ComprobarArchivoCuenta(Cliente cliente)
@@ -85,7 +88,7 @@ namespace AppBank_V1._1
         {
             ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
             Cliente cliente = control.Tag as Cliente;
-            frmCuentas frmCuentas = new frmCuentas();
+            frmCuentas frmCuentas = new frmCuentas(cliente);
             frmCuentas.ShowDialog();
         }
         private void btnAgregarCuenta_Click(object sender, EventArgs e)
@@ -94,7 +97,7 @@ namespace AppBank_V1._1
             {
                 Nombre = txtNombre.Text,
                 Id = int.Parse(txtCuenta.Text),
-                Edad = int.Parse(txtCuenta.Text),
+                Edad = int.Parse(txtEdad.Text),
                 Sexo = Convert.ToChar(txtSexo.Text),
             };
             listaClientes.AddCliente(clienteNuevo);

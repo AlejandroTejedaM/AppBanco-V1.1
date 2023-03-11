@@ -30,7 +30,7 @@
         {
             flpClientes = new FlowLayoutPanel();
             btnAgregarCuenta = new Button();
-            txtMonto = new TextBox();
+            txtEdad = new TextBox();
             txtSexo = new TextBox();
             txtCuenta = new TextBox();
             txtNombre = new TextBox();
@@ -59,12 +59,12 @@
             btnAgregarCuenta.UseVisualStyleBackColor = true;
             btnAgregarCuenta.Click += btnAgregarCuenta_Click;
             // 
-            // txtMonto
+            // txtEdad
             // 
-            txtMonto.Location = new Point(276, 178);
-            txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(282, 23);
-            txtMonto.TabIndex = 17;
+            txtEdad.Location = new Point(276, 178);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(282, 23);
+            txtEdad.TabIndex = 17;
             // 
             // txtSexo
             // 
@@ -141,7 +141,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(952, 559);
             Controls.Add(btnAgregarCuenta);
-            Controls.Add(txtMonto);
+            Controls.Add(txtEdad);
             Controls.Add(txtSexo);
             Controls.Add(txtCuenta);
             Controls.Add(txtNombre);
@@ -161,7 +161,7 @@
 
         private FlowLayoutPanel flpClientes;
         private Button btnAgregarCuenta;
-        private TextBox txtMonto;
+        private TextBox txtEdad;
         private TextBox txtSexo;
         private TextBox txtCuenta;
         private TextBox txtNombre;
