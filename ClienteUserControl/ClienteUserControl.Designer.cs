@@ -46,6 +46,7 @@
             pbImagenCliente.Location = new Point(3, 3);
             pbImagenCliente.Name = "pbImagenCliente";
             pbImagenCliente.Size = new Size(81, 83);
+            pbImagenCliente.SizeMode = PictureBoxSizeMode.StretchImage;
             pbImagenCliente.TabIndex = 0;
             pbImagenCliente.TabStop = false;
             // 
