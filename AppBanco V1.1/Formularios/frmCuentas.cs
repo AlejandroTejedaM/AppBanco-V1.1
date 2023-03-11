@@ -25,6 +25,7 @@ namespace AppBanco_V1._1
             listaCuentas = new ContenedorCuentas();
             Lectura();
             LlenarFlP();
+            ActualizarSaldoTotalCliente();
         }
 
         private void BtnAgregarCuenta_Click(object sender, EventArgs e)
@@ -39,27 +40,70 @@ namespace AppBanco_V1._1
             };
             listaCuentas.AddCuenta(NuevaCuenta);
             flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
+            ActualizarSaldoTotalCliente();
         }
         public CuentaControl getControlCuenta(Cuenta cuenta)
         {
+            ContenedorTransacciones listaTransaccionCuenta = new ContenedorTransacciones();
             CuentaControl controlCliente = new CuentaControl();
             controlCliente.Asignar(cuenta);
+            controlCliente.AsignarContenedor(listaTransaccionCuenta);
             controlCliente.btnMovimientosClick += ControlCliente_btnMovimientosClick;
             controlCliente.btnNueTransactClick += ControlCliente_btnNueTransactClick;
             ComprobarArchivoCuenta(this.cliente);
             controlCliente.Tag = cuenta;
             return controlCliente;
         }
+        private void ControlCliente_btnMovimientosClick(object? sender, EventArgs e)
+        {
+            CuentaControl control = sender as CuentaControl;
+            Cuenta cuenta = control.Tag as Cuenta;
+            ContenedorTransacciones contenedor = control.contenedorTransacciones;
+            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor);
+            frmCuentaTransacciones.FormClosed += FrmCuentaTransacciones_FormClosed;
+            frmCuentaTransacciones.ShowDialog();
+
+        }
+
+        private void FrmCuentaTransacciones_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            ActualizarSaldoTotalCliente();
+        }
 
         private void ControlCliente_btnNueTransactClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CuentaControl control = sender as CuentaControl;
+            Cuenta cuenta = control.Tag as Cuenta;
+            ContenedorTransacciones contenedor = control.contenedorTransacciones;
+            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(contenedor);
+            frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed; 
+            frmNuevaTransaccion.ShowDialog();
         }
 
-        private void ControlCliente_btnMovimientosClick(object? sender, EventArgs e)
+        private void FrmNuevaTransaccion_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            throw new NotImplementedException();
+            ActualizarSaldoTotalCliente();
         }
+
+        public void ActualizarSaldoTotalCliente()
+        {
+            if (listaCuentas != null)
+            {
+                decimal Aux = 0;
+                foreach (var item in listaCuentas.GetCuentas())
+                {
+                    if (item.TipoTransaccion == true)
+                    {
+                        Aux += item.Monto;
+                    }else if(item.TipoTransaccion == false)
+                    {
+                        Aux -= item.Monto;
+                    }
+                }
+                txtSaldoNeto.Text = Aux.ToString();
+            }
+        }
+ 
 
         public void LlenarFlP()
         {

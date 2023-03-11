@@ -13,11 +13,11 @@ namespace AppBanco_V1._1
 {
     public partial class FrmCuentaTransacciones : Form
     {
-        Cuenta cuenta;
-        public FrmCuentaTransacciones(Cuenta cuenta)
+        ContenedorTransacciones contenedor;
+        public FrmCuentaTransacciones(ContenedorTransacciones contenedor)
         {
             InitializeComponent();
-            this.cuenta = cuenta;
+            this.contenedor = contenedor;
         }
     }
 }
