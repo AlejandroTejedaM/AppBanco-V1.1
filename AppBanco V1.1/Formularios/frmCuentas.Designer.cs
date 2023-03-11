@@ -42,6 +42,7 @@
             label4 = new Label();
             txtSaldoNeto = new TextBox();
             label5 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnAgregarCuenta
@@ -168,11 +169,22 @@
             label5.TabIndex = 31;
             label5.Text = "$";
             // 
+            // button1
+            // 
+            button1.Location = new Point(881, 563);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 32;
+            button1.Text = "REGRESAR";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmCuentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(990, 598);
+            Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(txtSaldoNeto);
             Controls.Add(label4);
@@ -209,5 +221,6 @@
         private Label label4;
         public TextBox txtSaldoNeto;
         private Label label5;
+        private Button button1;
     }
 }

@@ -76,7 +76,7 @@ namespace AppBanco_V1._1
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
             FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(contenedor);
-            frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed; 
+            frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed;
             frmNuevaTransaccion.ShowDialog();
         }
 
@@ -95,7 +95,8 @@ namespace AppBanco_V1._1
                     if (item.TipoTransaccion == true)
                     {
                         Aux += item.Monto;
-                    }else if(item.TipoTransaccion == false)
+                    }
+                    else if (item.TipoTransaccion == false)
                     {
                         Aux -= item.Monto;
                     }
@@ -103,7 +104,7 @@ namespace AppBanco_V1._1
                 txtSaldoNeto.Text = Aux.ToString();
             }
         }
- 
+
 
         public void LlenarFlP()
         {
@@ -171,6 +172,11 @@ namespace AppBanco_V1._1
         private void frmCuentas_FormClosing(object sender, FormClosingEventArgs e)
         {
             Escritura();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         //private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)
