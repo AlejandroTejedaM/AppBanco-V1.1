@@ -1,4 +1,4 @@
-﻿namespace BankClassSourcesDLL
+﻿namespace BankClassSourcesDLL.Clases
 {
     public class Writer : IDisposable
     {
