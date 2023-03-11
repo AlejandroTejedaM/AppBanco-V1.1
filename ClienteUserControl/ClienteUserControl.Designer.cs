@@ -105,7 +105,7 @@
             btnMostrarCuentas.TabIndex = 7;
             btnMostrarCuentas.Text = "Cuentas";
             btnMostrarCuentas.UseVisualStyleBackColor = true;
-            btnMostrarCuentas.Click += btnMostrarCuentas_Click;
+            btnMostrarCuentas.Click += BtnMostrarCuentas_Click;
             // 
             // txtSexo
             // 

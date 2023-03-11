@@ -17,7 +17,7 @@ namespace AppBanco_V1._1
             InitializeComponent();
         }
 
-        private void btnAgregarCuenta_Click(object sender, EventArgs e)
+        private void BtnAgregarCuenta_Click(object sender, EventArgs e)
         {
 
         }

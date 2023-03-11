@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppBanco_V1._1
 {
-    public partial class frmNuevaTransaccion : Form
+    public partial class FrmNuevaTransaccion : Form
     {
-        public frmNuevaTransaccion()
+        public FrmNuevaTransaccion()
         {
             InitializeComponent();
         }

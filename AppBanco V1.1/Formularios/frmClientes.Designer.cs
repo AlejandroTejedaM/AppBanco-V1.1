@@ -1,6 +1,6 @@
 ﻿namespace AppBank_V1._1
 {
-    partial class frmClientes
+    partial class FrmClientes
     {
         /// <summary>
         ///  Required designer variable.

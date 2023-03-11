@@ -49,7 +49,7 @@
             btnAgregarCuenta.TabIndex = 28;
             btnAgregarCuenta.Text = "AGREGAR CUENTA";
             btnAgregarCuenta.UseVisualStyleBackColor = true;
-            btnAgregarCuenta.Click += btnAgregarCuenta_Click;
+            btnAgregarCuenta.Click += BtnAgregarCuenta_Click;
             // 
             // txtMonto
             // 

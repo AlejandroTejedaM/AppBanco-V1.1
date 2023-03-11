@@ -1,8 +1,8 @@
 namespace AppBank_V1._1
 {
-    public partial class frmClientes : Form
+    public partial class FrmClientes : Form
     {
-        public frmClientes()
+        public FrmClientes()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace AppBanco_V1._1
 {
-    partial class frmNuevaTransaccion
+    partial class FrmNuevaTransaccion
     {
         /// <summary>
         /// Required designer variable.

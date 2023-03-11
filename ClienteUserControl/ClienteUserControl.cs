@@ -6,7 +6,7 @@
         {
             InitializeComponent();
         }
-        private void btnMostrarCuentas_Click(object sender, EventArgs e)
+        private void BtnMostrarCuentas_Click(object sender, EventArgs e)
         {
 
         }
