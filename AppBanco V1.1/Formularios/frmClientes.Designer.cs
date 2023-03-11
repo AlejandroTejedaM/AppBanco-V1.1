@@ -31,7 +31,7 @@
             flpClientes = new FlowLayoutPanel();
             btnAgregarCuenta = new Button();
             txtMonto = new TextBox();
-            txtFecha = new TextBox();
+            txtSexo = new TextBox();
             txtCuenta = new TextBox();
             txtNombre = new TextBox();
             label1 = new Label();
@@ -56,6 +56,7 @@
             btnAgregarCuenta.TabIndex = 18;
             btnAgregarCuenta.Text = "AGREGAR CLIENTE";
             btnAgregarCuenta.UseVisualStyleBackColor = true;
+            btnAgregarCuenta.Click += btnAgregarCuenta_Click;
             // 
             // txtMonto
             // 
@@ -64,12 +65,12 @@
             txtMonto.Size = new Size(282, 23);
             txtMonto.TabIndex = 17;
             // 
-            // txtFecha
+            // txtSexo
             // 
-            txtFecha.Location = new Point(276, 123);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(282, 23);
-            txtFecha.TabIndex = 16;
+            txtSexo.Location = new Point(276, 123);
+            txtSexo.Name = "txtSexo";
+            txtSexo.Size = new Size(282, 23);
+            txtSexo.TabIndex = 16;
             // 
             // txtCuenta
             // 
@@ -133,14 +134,14 @@
             Nombre.TabIndex = 10;
             Nombre.Text = "Nombre";
             // 
-            // frmClientes
+            // FrmClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(952, 559);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(txtMonto);
-            Controls.Add(txtFecha);
+            Controls.Add(txtSexo);
             Controls.Add(txtCuenta);
             Controls.Add(txtNombre);
             Controls.Add(label1);
@@ -148,8 +149,9 @@
             Controls.Add(label2);
             Controls.Add(Nombre);
             Controls.Add(flpClientes);
-            Name = "frmClientes";
+            Name = "FrmClientes";
             Text = "BANCO MAPACHITOS";
+            FormClosing += FrmClientes_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,7 +161,7 @@
         private FlowLayoutPanel flpClientes;
         private Button btnAgregarCuenta;
         private TextBox txtMonto;
-        private TextBox txtFecha;
+        private TextBox txtSexo;
         private TextBox txtCuenta;
         private TextBox txtNombre;
         private Label label1;

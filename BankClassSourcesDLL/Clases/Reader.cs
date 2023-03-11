@@ -9,7 +9,7 @@
         }
 
         #region Metodos
-        public string ReadAll(string rute)
+        public string ReadAll()
         {
             try
             {

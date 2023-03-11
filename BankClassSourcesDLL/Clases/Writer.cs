@@ -3,15 +3,15 @@
     public class Writer : IDisposable
     {
         private StreamWriter wr;
-        public Writer(string filePath)
+        public Writer(string filePath, bool rewrite = false)
         {
             wr = new StreamWriter(filePath);
         }
 
         #region Metodos
-        public void Write(Stream stream)
+        public void Write(string text)
         {
-            wr.WriteLine(stream);
+            wr.WriteLine(text);
         }
         public void Close()
         {

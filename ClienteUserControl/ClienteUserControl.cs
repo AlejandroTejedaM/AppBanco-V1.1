@@ -3,11 +3,11 @@ using ClienteUserControl.Properties;
 
 namespace ClienteUserControl
 {
-    public partial class UserControl1 : UserControl
+    public partial class ClienteUserControl : UserControl
     {
         public Cliente Cliente { get; set; }
         public event EventHandler BtnMostrarCuentasClick;
-        public UserControl1()
+        public ClienteUserControl()
         {
             InitializeComponent();
         }

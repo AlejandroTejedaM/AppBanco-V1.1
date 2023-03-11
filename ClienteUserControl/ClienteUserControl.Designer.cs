@@ -1,6 +1,6 @@
 ﻿namespace ClienteUserControl
 {
-    partial class UserControl1
+    partial class ClienteUserControl
     {
         /// <summary>
         /// Required designer variable.

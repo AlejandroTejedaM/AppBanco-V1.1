@@ -12,7 +12,7 @@
         #region ToString sobreescrito
         public override string ToString()
         {
-            return $"{Nombre},{Id},{Edad},{Sexo}";
+            return $"{Nombre},{Id},{Edad},{Sexo},";
         }
         #endregion
 
