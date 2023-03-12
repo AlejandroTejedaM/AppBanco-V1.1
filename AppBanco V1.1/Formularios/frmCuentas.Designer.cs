@@ -38,12 +38,17 @@
             label2 = new Label();
             Nombre = new Label();
             flpCuentas = new FlowLayoutPanel();
+            saveFileDialog1 = new SaveFileDialog();
+            label4 = new Label();
+            txtSaldoNeto = new TextBox();
+            label5 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnAgregarCuenta
             // 
             btnAgregarCuenta.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarCuenta.Location = new Point(719, 80);
+            btnAgregarCuenta.Location = new Point(725, 19);
             btnAgregarCuenta.Name = "btnAgregarCuenta";
             btnAgregarCuenta.Size = new Size(194, 61);
             btnAgregarCuenta.TabIndex = 28;
@@ -134,11 +139,55 @@
             flpCuentas.Size = new Size(928, 318);
             flpCuentas.TabIndex = 19;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.ActiveCaptionText;
+            label4.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Cornsilk;
+            label4.Location = new Point(698, 107);
+            label4.Name = "label4";
+            label4.Size = new Size(90, 37);
+            label4.TabIndex = 29;
+            label4.Text = "Saldo:";
+            // 
+            // txtSaldoNeto
+            // 
+            txtSaldoNeto.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSaldoNeto.Location = new Point(698, 156);
+            txtSaldoNeto.Name = "txtSaldoNeto";
+            txtSaldoNeto.Size = new Size(258, 34);
+            txtSaldoNeto.TabIndex = 30;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(662, 153);
+            label5.Name = "label5";
+            label5.Size = new Size(32, 37);
+            label5.TabIndex = 31;
+            label5.Text = "$";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(881, 563);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 32;
+            button1.Text = "REGRESAR";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmCuentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(990, 598);
+            Controls.Add(button1);
+            Controls.Add(label5);
+            Controls.Add(txtSaldoNeto);
+            Controls.Add(label4);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(txtMonto);
             Controls.Add(txtFecha);
@@ -151,6 +200,7 @@
             Controls.Add(flpCuentas);
             Name = "frmCuentas";
             Text = "CUENTAS";
+            FormClosing += frmCuentas_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +217,10 @@
         private Label label2;
         private Label Nombre;
         private FlowLayoutPanel flpCuentas;
+        private SaveFileDialog saveFileDialog1;
+        private Label label4;
+        public TextBox txtSaldoNeto;
+        private Label label5;
+        private Button button1;
     }
 }

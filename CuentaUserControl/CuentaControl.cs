@@ -14,6 +14,7 @@ namespace CuentaUserControl
     public partial class CuentaControl : UserControl
     {
         public Cuenta CuentaInfo { get; set; }
+        public ContenedorTransacciones contenedorTransacciones { get; set; }
         public event EventHandler btnMovimientosClick;
         public event EventHandler btnNueTransactClick;
         public CuentaControl()
@@ -26,6 +27,10 @@ namespace CuentaUserControl
             txtNoCuenta.Text = c.NoCuenta.ToString();
             txtSaldo.Text = c.Monto.ToString();
             CuentaInfo = c;
+        }
+        public void AsignarContenedor(ContenedorTransacciones contenedor)
+        {
+            contenedorTransacciones = contenedor;
         }
 
 
