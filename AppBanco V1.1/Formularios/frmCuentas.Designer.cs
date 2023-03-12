@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             btnAgregarCuenta = new Button();
-            txtMonto = new TextBox();
-            txtFecha = new TextBox();
             txtCuenta = new TextBox();
             txtNombre = new TextBox();
-            label1 = new Label();
-            label3 = new Label();
             label2 = new Label();
             Nombre = new Label();
             flpCuentas = new FlowLayoutPanel();
@@ -58,22 +54,6 @@
             btnAgregarCuenta.UseVisualStyleBackColor = true;
             btnAgregarCuenta.Click += BtnAgregarCuenta_Click;
             // 
-            // txtMonto
-            // 
-            txtMonto.Location = new Point(411, 293);
-            txtMonto.Margin = new Padding(4, 5, 4, 5);
-            txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(401, 31);
-            txtMonto.TabIndex = 27;
-            // 
-            // txtFecha
-            // 
-            txtFecha.Location = new Point(411, 203);
-            txtFecha.Margin = new Padding(4, 5, 4, 5);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(401, 31);
-            txtFecha.TabIndex = 26;
-            // 
             // txtCuenta
             // 
             txtCuenta.Location = new Point(411, 120);
@@ -89,32 +69,6 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(401, 31);
             txtNombre.TabIndex = 24;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ActiveCaptionText;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Cornsilk;
-            label1.Location = new Point(141, 278);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(254, 54);
-            label1.TabIndex = 23;
-            label1.Text = "Monto inicial";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = SystemColors.ActiveCaptionText;
-            label3.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Cornsilk;
-            label3.Location = new Point(13, 185);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(392, 54);
-            label3.TabIndex = 22;
-            label3.Text = "Fecha de transacción";
             // 
             // label2
             // 
@@ -156,7 +110,7 @@
             label4.BackColor = SystemColors.ActiveCaptionText;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Cornsilk;
-            label4.Location = new Point(997, 178);
+            label4.Location = new Point(235, 213);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(130, 54);
@@ -166,9 +120,10 @@
             // txtSaldoNeto
             // 
             txtSaldoNeto.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSaldoNeto.Location = new Point(997, 260);
+            txtSaldoNeto.Location = new Point(445, 220);
             txtSaldoNeto.Margin = new Padding(4, 5, 4, 5);
             txtSaldoNeto.Name = "txtSaldoNeto";
+            txtSaldoNeto.ReadOnly = true;
             txtSaldoNeto.Size = new Size(367, 47);
             txtSaldoNeto.TabIndex = 30;
             // 
@@ -176,7 +131,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(946, 255);
+            label5.Location = new Point(394, 215);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(45, 54);
@@ -204,12 +159,8 @@
             Controls.Add(txtSaldoNeto);
             Controls.Add(label4);
             Controls.Add(btnAgregarCuenta);
-            Controls.Add(txtMonto);
-            Controls.Add(txtFecha);
             Controls.Add(txtCuenta);
             Controls.Add(txtNombre);
-            Controls.Add(label1);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(Nombre);
             Controls.Add(flpCuentas);
@@ -224,12 +175,8 @@
         #endregion
 
         private Button btnAgregarCuenta;
-        private TextBox txtMonto;
-        private TextBox txtFecha;
         private TextBox txtCuenta;
         private TextBox txtNombre;
-        private Label label1;
-        private Label label3;
         private Label label2;
         private Label Nombre;
         private FlowLayoutPanel flpCuentas;

@@ -59,7 +59,7 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor);
+            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor,cuenta);
             frmCuentaTransacciones.FormClosed += FrmCuentaTransacciones_FormClosed;
             frmCuentaTransacciones.ShowDialog();
         }
@@ -74,7 +74,7 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(contenedor);
+            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(cuenta);
             frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed;
             frmNuevaTransaccion.ShowDialog();
         }
