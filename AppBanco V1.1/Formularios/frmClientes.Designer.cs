@@ -43,17 +43,19 @@
             // 
             // flpClientes
             // 
-            flpClientes.Location = new Point(12, 236);
+            flpClientes.Location = new Point(17, 393);
+            flpClientes.Margin = new Padding(4, 5, 4, 5);
             flpClientes.Name = "flpClientes";
-            flpClientes.Size = new Size(928, 295);
+            flpClientes.Size = new Size(1326, 492);
             flpClientes.TabIndex = 0;
             // 
             // btnAgregarCuenta
             // 
             btnAgregarCuenta.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarCuenta.Location = new Point(680, 85);
+            btnAgregarCuenta.Location = new Point(971, 142);
+            btnAgregarCuenta.Margin = new Padding(4, 5, 4, 5);
             btnAgregarCuenta.Name = "btnAgregarCuenta";
-            btnAgregarCuenta.Size = new Size(194, 61);
+            btnAgregarCuenta.Size = new Size(277, 102);
             btnAgregarCuenta.TabIndex = 18;
             btnAgregarCuenta.Text = "AGREGAR CLIENTE";
             btnAgregarCuenta.UseVisualStyleBackColor = true;
@@ -61,30 +63,34 @@
             // 
             // txtEdad
             // 
-            txtEdad.Location = new Point(276, 178);
+            txtEdad.Location = new Point(394, 297);
+            txtEdad.Margin = new Padding(4, 5, 4, 5);
             txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(282, 23);
+            txtEdad.Size = new Size(401, 31);
             txtEdad.TabIndex = 17;
             // 
             // txtSexo
             // 
-            txtSexo.Location = new Point(276, 123);
+            txtSexo.Location = new Point(394, 205);
+            txtSexo.Margin = new Padding(4, 5, 4, 5);
             txtSexo.Name = "txtSexo";
-            txtSexo.Size = new Size(282, 23);
+            txtSexo.Size = new Size(401, 31);
             txtSexo.TabIndex = 16;
             // 
             // txtCuenta
             // 
-            txtCuenta.Location = new Point(276, 61);
+            txtCuenta.Location = new Point(394, 102);
+            txtCuenta.Margin = new Padding(4, 5, 4, 5);
             txtCuenta.Name = "txtCuenta";
-            txtCuenta.Size = new Size(282, 23);
+            txtCuenta.Size = new Size(401, 31);
             txtCuenta.TabIndex = 15;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(276, 12);
+            txtNombre.Location = new Point(394, 20);
+            txtNombre.Margin = new Padding(4, 5, 4, 5);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(282, 23);
+            txtNombre.Size = new Size(401, 31);
             txtNombre.TabIndex = 14;
             // 
             // label1
@@ -93,9 +99,10 @@
             label1.BackColor = SystemColors.ActiveCaptionText;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Cornsilk;
-            label1.Location = new Point(183, 170);
+            label1.Location = new Point(261, 283);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 37);
+            label1.Size = new Size(111, 54);
             label1.TabIndex = 13;
             label1.Text = "Edad";
             // 
@@ -105,9 +112,10 @@
             label3.BackColor = SystemColors.ActiveCaptionText;
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Cornsilk;
-            label3.Location = new Point(187, 114);
+            label3.Location = new Point(267, 190);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(73, 37);
+            label3.Size = new Size(106, 54);
             label3.TabIndex = 12;
             label3.Text = "Sexo";
             // 
@@ -117,9 +125,10 @@
             label2.BackColor = SystemColors.ActiveCaptionText;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Cornsilk;
-            label2.Location = new Point(117, 53);
+            label2.Location = new Point(167, 88);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(142, 37);
+            label2.Size = new Size(209, 54);
             label2.TabIndex = 11;
             label2.Text = "No.Cliente";
             // 
@@ -129,17 +138,18 @@
             Nombre.BackColor = SystemColors.ActiveCaptionText;
             Nombre.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             Nombre.ForeColor = Color.Cornsilk;
-            Nombre.Location = new Point(145, 4);
+            Nombre.Location = new Point(207, 7);
+            Nombre.Margin = new Padding(4, 0, 4, 0);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(115, 37);
+            Nombre.Size = new Size(169, 54);
             Nombre.TabIndex = 10;
             Nombre.Text = "Nombre";
             // 
             // FrmClientes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(952, 559);
+            ClientSize = new Size(1360, 932);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(txtEdad);
             Controls.Add(txtSexo);
@@ -150,8 +160,9 @@
             Controls.Add(label2);
             Controls.Add(Nombre);
             Controls.Add(flpClientes);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmClientes";
-            Text = "BANCO MAPACHITOS";
+            Text = " ";
             FormClosing += FrmClientes_FormClosing;
             ResumeLayout(false);
             PerformLayout();

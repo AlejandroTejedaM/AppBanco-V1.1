@@ -25,7 +25,7 @@ namespace AppBanco_V1._1
             listaCuentas = new ContenedorCuentas();
             Lectura();
             LlenarFlP();
-            ActualizarSaldoTotalCliente();
+            //ActualizarSaldoTotalCliente();
         }
 
         private void BtnAgregarCuenta_Click(object sender, EventArgs e)
@@ -33,14 +33,13 @@ namespace AppBanco_V1._1
             Cuenta NuevaCuenta = new Cuenta()
             {
                 Nombre = txtNombre.Text,
-                Fecha = txtFecha.Text,
                 NoCuenta = int.Parse(txtCuenta.Text),
-                Monto = decimal.Parse(txtMonto.Text),
-                TipoTransaccion = true
+                SaldoNeto = 0,
+                //TipoTransaccion = true
             };
             listaCuentas.AddCuenta(NuevaCuenta);
             flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
-            ActualizarSaldoTotalCliente();
+            //ActualizarSaldoTotalCliente();
         }
         public CuentaControl getControlCuenta(Cuenta cuenta)
         {
@@ -51,6 +50,7 @@ namespace AppBanco_V1._1
             controlCliente.btnMovimientosClick += ControlCliente_btnMovimientosClick;
             controlCliente.btnNueTransactClick += ControlCliente_btnNueTransactClick;
             ComprobarArchivoCuenta(this.cliente);
+            ComprobarArchivoTransaccion(cuenta);
             controlCliente.Tag = cuenta;
             return controlCliente;
         }
@@ -59,15 +59,14 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor);
+            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor,cuenta);
             frmCuentaTransacciones.FormClosed += FrmCuentaTransacciones_FormClosed;
             frmCuentaTransacciones.ShowDialog();
-
         }
 
         private void FrmCuentaTransacciones_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            ActualizarSaldoTotalCliente();
+            //ActualizarSaldoTotalCliente();
         }
 
         private void ControlCliente_btnNueTransactClick(object? sender, EventArgs e)
@@ -75,35 +74,35 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(contenedor);
+            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(cuenta);
             frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed;
             frmNuevaTransaccion.ShowDialog();
         }
 
         private void FrmNuevaTransaccion_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            ActualizarSaldoTotalCliente();
+            //ActualizarSaldoTotalCliente();
         }
 
-        public void ActualizarSaldoTotalCliente()
-        {
-            if (listaCuentas != null)
-            {
-                decimal Aux = 0;
-                foreach (var item in listaCuentas.GetCuentas())
-                {
-                    if (item.TipoTransaccion == true)
-                    {
-                        Aux += item.Monto;
-                    }
-                    else if (item.TipoTransaccion == false)
-                    {
-                        Aux -= item.Monto;
-                    }
-                }
-                txtSaldoNeto.Text = Aux.ToString();
-            }
-        }
+        //public void ActualizarSaldoTotalCliente()
+        //{
+        //    if (listaCuentas != null)
+        //    {
+        //        decimal Aux = 0;
+        //        foreach (var item in listaCuentas.GetCuentas())
+        //        {
+        //            if (item.TipoTransaccion == true)
+        //            {
+        //                Aux += item.Monto;
+        //            }
+        //            else if (item.TipoTransaccion == false)
+        //            {
+        //                Aux -= item.Monto;
+        //            }
+        //        }
+        //        txtSaldoNeto.Text = Aux.ToString();
+        //    }
+        //}
 
 
         public void LlenarFlP()
@@ -135,6 +134,11 @@ namespace AppBanco_V1._1
         {
             return @"C:\TAP\EXAMEN-2\Cuentas\" + cliente.Id + ".txt";
         }
+
+        public string rutaTransacciones(Cuenta cuenta)
+        {
+            return @"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt";
+        }
         public void Lectura()
         {
             StreamReader lct = new StreamReader(rutaCuenta());
@@ -147,9 +151,10 @@ namespace AppBanco_V1._1
                 {
                     Nombre = columas[0],
                     NoCuenta = int.Parse(columas[1]),
-                    Fecha = columas[2],
-                    TipoTransaccion = bool.Parse(columas[3]),
-                    Monto = decimal.Parse(columas[4]),
+                    SaldoNeto = int.Parse(columas[2]),
+                    //Fecha = columas[2],
+                    //TipoTransaccion = bool.Parse(columas[3]),
+                    //Monto = decimal.Parse(columas[4]),
                 };
                 listaCuentas.AddCuenta(cuentaArchivo);
             }
@@ -165,6 +170,18 @@ namespace AppBanco_V1._1
                 //En caso que no exista se hace uso del savefiledialog
                 saveFileDialog1.FileName = rutaCuenta();
                 Writer escritura = new Writer(saveFileDialog1.FileName, true);
+                escritura.Dispose();
+            }
+        }
+        public void ComprobarArchivoTransaccion(Cuenta cuenta)
+        {
+            //comprueba si existe el archivo con el mismo nombre del Id del cliente
+            //este guarda todas sus cuentas cabe recalcar
+            if (File.Exists(rutaTransacciones(cuenta)) == false)
+            {
+                //En caso que no exista se hace uso del savefiledialog
+                saveFileDialog2.FileName = rutaTransacciones(cuenta);
+                Writer escritura = new Writer(saveFileDialog2.FileName, true);
                 escritura.Dispose();
             }
         }

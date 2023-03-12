@@ -11,7 +11,7 @@
         #region ToString sobreescrito
         public override string ToString()
         {
-            return $"{Fecha},{Tipo},{Monto}";
+            return $"{Fecha},{Tipo},{Monto},";
         }
         #endregion
 

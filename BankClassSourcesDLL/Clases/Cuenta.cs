@@ -5,15 +5,17 @@
         #region Propiedades
         public string ?Nombre { get; set; }
         public int NoCuenta { get; set; }
-        public string ?Fecha { get; set; }
-        public bool TipoTransaccion { get; set; }
-        public decimal Monto { get; set; }
+        //public string ?Fecha { get; set; }
+        //public bool TipoTransaccion { get; set; }
+        public decimal SaldoNeto { get; set; }
         #endregion
 
         #region ToString sobreescrito
         public override string ToString()
         {
-            return $"{Nombre},{NoCuenta},{Fecha},{TipoTransaccion},{Monto}";
+            return $"{Nombre},{NoCuenta},{SaldoNeto}";
+                //$"{Fecha},";
+                //$"{TipoTransaccion},{Monto}";
         }
         #endregion
 

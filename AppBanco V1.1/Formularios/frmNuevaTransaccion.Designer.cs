@@ -39,9 +39,10 @@
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(396, 382);
+            btnRegresar.Location = new Point(566, 637);
+            btnRegresar.Margin = new Padding(4, 5, 4, 5);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(75, 23);
+            btnRegresar.Size = new Size(107, 38);
             btnRegresar.TabIndex = 21;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -49,28 +50,33 @@
             // btnRetiro
             // 
             btnRetiro.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRetiro.Location = new Point(263, 294);
+            btnRetiro.Location = new Point(376, 490);
+            btnRetiro.Margin = new Padding(4, 5, 4, 5);
             btnRetiro.Name = "btnRetiro";
-            btnRetiro.Size = new Size(156, 53);
+            btnRetiro.Size = new Size(223, 88);
             btnRetiro.TabIndex = 20;
             btnRetiro.Text = "RETIRO";
             btnRetiro.UseVisualStyleBackColor = true;
+            btnRetiro.Click += btnRetiro_Click;
             // 
             // btnAbono
             // 
             btnAbono.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAbono.Location = new Point(38, 294);
+            btnAbono.Location = new Point(54, 490);
+            btnAbono.Margin = new Padding(4, 5, 4, 5);
             btnAbono.Name = "btnAbono";
-            btnAbono.Size = new Size(165, 53);
+            btnAbono.Size = new Size(236, 88);
             btnAbono.TabIndex = 19;
             btnAbono.Text = "ABONO";
             btnAbono.UseVisualStyleBackColor = true;
+            btnAbono.Click += btnAbono_Click;
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(212, 140);
+            txtMonto.Location = new Point(303, 233);
+            txtMonto.Margin = new Padding(4, 5, 4, 5);
             txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(198, 23);
+            txtMonto.Size = new Size(281, 31);
             txtMonto.TabIndex = 18;
             // 
             // label2
@@ -79,17 +85,19 @@
             label2.BackColor = SystemColors.ActiveCaptionText;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(138, 140);
+            label2.Location = new Point(197, 233);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(68, 25);
+            label2.Size = new Size(103, 40);
             label2.TabIndex = 17;
             label2.Text = "Monto";
             // 
             // txtFecha
             // 
-            txtFecha.Location = new Point(212, 35);
+            txtFecha.Location = new Point(303, 58);
+            txtFecha.Margin = new Padding(4, 5, 4, 5);
             txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(198, 23);
+            txtFecha.Size = new Size(281, 31);
             txtFecha.TabIndex = 16;
             // 
             // label1
@@ -98,17 +106,18 @@
             label1.BackColor = SystemColors.ActiveCaptionText;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(17, 35);
+            label1.Location = new Point(24, 58);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(189, 25);
+            label1.Size = new Size(282, 40);
             label1.TabIndex = 15;
             label1.Text = "Fecha de transacción";
             // 
-            // frmNuevaTransaccion
+            // FrmNuevaTransaccion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(483, 450);
+            ClientSize = new Size(690, 750);
             Controls.Add(btnRegresar);
             Controls.Add(btnRetiro);
             Controls.Add(btnAbono);
@@ -116,7 +125,8 @@
             Controls.Add(label2);
             Controls.Add(txtFecha);
             Controls.Add(label1);
-            Name = "frmNuevaTransaccion";
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "FrmNuevaTransaccion";
             Text = "frmNuevaTransaccion";
             ResumeLayout(false);
             PerformLayout();
