@@ -18,6 +18,7 @@ namespace AppBanco_V1._1
         {
             InitializeComponent();
             this.contenedor = contenedor;
+            llenarFLP();
         }
         public void llenarFLP()
         {
@@ -33,6 +34,8 @@ namespace AppBanco_V1._1
         {
             Button button = new Button();
             decimal var = a.Monto;
+            button.Width = 100;
+            button.Height = 100;
             button.Text = var.ToString();
             if (a.Tipo.Replace(" ", "") == "Abono")//abono
             {

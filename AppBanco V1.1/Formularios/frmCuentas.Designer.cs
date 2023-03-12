@@ -43,14 +43,16 @@
             txtSaldoNeto = new TextBox();
             label5 = new Label();
             button1 = new Button();
+            saveFileDialog2 = new SaveFileDialog();
             SuspendLayout();
             // 
             // btnAgregarCuenta
             // 
             btnAgregarCuenta.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarCuenta.Location = new Point(725, 19);
+            btnAgregarCuenta.Location = new Point(1036, 32);
+            btnAgregarCuenta.Margin = new Padding(4, 5, 4, 5);
             btnAgregarCuenta.Name = "btnAgregarCuenta";
-            btnAgregarCuenta.Size = new Size(194, 61);
+            btnAgregarCuenta.Size = new Size(277, 102);
             btnAgregarCuenta.TabIndex = 28;
             btnAgregarCuenta.Text = "AGREGAR CUENTA";
             btnAgregarCuenta.UseVisualStyleBackColor = true;
@@ -58,30 +60,34 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(288, 176);
+            txtMonto.Location = new Point(411, 293);
+            txtMonto.Margin = new Padding(4, 5, 4, 5);
             txtMonto.Name = "txtMonto";
-            txtMonto.Size = new Size(282, 23);
+            txtMonto.Size = new Size(401, 31);
             txtMonto.TabIndex = 27;
             // 
             // txtFecha
             // 
-            txtFecha.Location = new Point(288, 122);
+            txtFecha.Location = new Point(411, 203);
+            txtFecha.Margin = new Padding(4, 5, 4, 5);
             txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(282, 23);
+            txtFecha.Size = new Size(401, 31);
             txtFecha.TabIndex = 26;
             // 
             // txtCuenta
             // 
-            txtCuenta.Location = new Point(288, 72);
+            txtCuenta.Location = new Point(411, 120);
+            txtCuenta.Margin = new Padding(4, 5, 4, 5);
             txtCuenta.Name = "txtCuenta";
-            txtCuenta.Size = new Size(282, 23);
+            txtCuenta.Size = new Size(401, 31);
             txtCuenta.TabIndex = 25;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(288, 19);
+            txtNombre.Location = new Point(411, 32);
+            txtNombre.Margin = new Padding(4, 5, 4, 5);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(282, 23);
+            txtNombre.Size = new Size(401, 31);
             txtNombre.TabIndex = 24;
             // 
             // label1
@@ -90,9 +96,10 @@
             label1.BackColor = SystemColors.ActiveCaptionText;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Cornsilk;
-            label1.Location = new Point(99, 167);
+            label1.Location = new Point(141, 278);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(173, 37);
+            label1.Size = new Size(254, 54);
             label1.TabIndex = 23;
             label1.Text = "Monto inicial";
             // 
@@ -102,9 +109,10 @@
             label3.BackColor = SystemColors.ActiveCaptionText;
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Cornsilk;
-            label3.Location = new Point(9, 111);
+            label3.Location = new Point(13, 185);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(263, 37);
+            label3.Size = new Size(392, 54);
             label3.TabIndex = 22;
             label3.Text = "Fecha de transacción";
             // 
@@ -114,9 +122,10 @@
             label2.BackColor = SystemColors.ActiveCaptionText;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Cornsilk;
-            label2.Location = new Point(129, 64);
+            label2.Location = new Point(184, 107);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(143, 37);
+            label2.Size = new Size(211, 54);
             label2.TabIndex = 21;
             label2.Text = "No.Cuenta";
             // 
@@ -126,17 +135,19 @@
             Nombre.BackColor = SystemColors.ActiveCaptionText;
             Nombre.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             Nombre.ForeColor = Color.Cornsilk;
-            Nombre.Location = new Point(157, 11);
+            Nombre.Location = new Point(224, 18);
+            Nombre.Margin = new Padding(4, 0, 4, 0);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(115, 37);
+            Nombre.Size = new Size(169, 54);
             Nombre.TabIndex = 20;
             Nombre.Text = "Nombre";
             // 
             // flpCuentas
             // 
-            flpCuentas.Location = new Point(28, 236);
+            flpCuentas.Location = new Point(40, 393);
+            flpCuentas.Margin = new Padding(4, 5, 4, 5);
             flpCuentas.Name = "flpCuentas";
-            flpCuentas.Size = new Size(928, 318);
+            flpCuentas.Size = new Size(1326, 530);
             flpCuentas.TabIndex = 19;
             // 
             // label4
@@ -145,35 +156,39 @@
             label4.BackColor = SystemColors.ActiveCaptionText;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Cornsilk;
-            label4.Location = new Point(698, 107);
+            label4.Location = new Point(997, 178);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(90, 37);
+            label4.Size = new Size(130, 54);
             label4.TabIndex = 29;
             label4.Text = "Saldo:";
             // 
             // txtSaldoNeto
             // 
             txtSaldoNeto.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSaldoNeto.Location = new Point(698, 156);
+            txtSaldoNeto.Location = new Point(997, 260);
+            txtSaldoNeto.Margin = new Padding(4, 5, 4, 5);
             txtSaldoNeto.Name = "txtSaldoNeto";
-            txtSaldoNeto.Size = new Size(258, 34);
+            txtSaldoNeto.Size = new Size(367, 47);
             txtSaldoNeto.TabIndex = 30;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(662, 153);
+            label5.Location = new Point(946, 255);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(32, 37);
+            label5.Size = new Size(45, 54);
             label5.TabIndex = 31;
             label5.Text = "$";
             // 
             // button1
             // 
-            button1.Location = new Point(881, 563);
+            button1.Location = new Point(1259, 938);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(107, 38);
             button1.TabIndex = 32;
             button1.Text = "REGRESAR";
             button1.UseVisualStyleBackColor = true;
@@ -181,9 +196,9 @@
             // 
             // frmCuentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(990, 598);
+            ClientSize = new Size(1414, 997);
             Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(txtSaldoNeto);
@@ -198,6 +213,7 @@
             Controls.Add(label2);
             Controls.Add(Nombre);
             Controls.Add(flpCuentas);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "frmCuentas";
             Text = "CUENTAS";
             FormClosing += frmCuentas_FormClosing;
@@ -222,5 +238,6 @@
         public TextBox txtSaldoNeto;
         private Label label5;
         private Button button1;
+        private SaveFileDialog saveFileDialog2;
     }
 }

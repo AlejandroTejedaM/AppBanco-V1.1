@@ -25,7 +25,7 @@ namespace CuentaUserControl
         {
             txtNombre.Text = c.Nombre.ToString();
             txtNoCuenta.Text = c.NoCuenta.ToString();
-            txtSaldo.Text = c.Monto.ToString();
+            txtSaldo.Text = c.SaldoNeto.ToString();
             CuentaInfo = c;
         }
         public void AsignarContenedor(ContenedorTransacciones contenedor)
