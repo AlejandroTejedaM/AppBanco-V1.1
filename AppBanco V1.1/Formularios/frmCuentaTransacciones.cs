@@ -16,13 +16,18 @@ namespace AppBanco_V1._1
     {
         ContenedorTransacciones listaTransaccionUnica;
         Cuenta cuentaTransaccion;
-        public FrmCuentaTransacciones(ContenedorTransacciones contenedor, Cuenta cuenta)
+        CuentaControl control;
+        frmCuentas frm;
+        public FrmCuentaTransacciones(ContenedorTransacciones contenedor, Cuenta cuenta, CuentaControl control, frmCuentas frm)
         {
             InitializeComponent();
             this.listaTransaccionUnica = contenedor;
             this.cuentaTransaccion = cuenta;
+            this.control = control;
+            this.frm = frm;
             Leer();
             llenarFLP();
+            Actualizar();
         }
         public void llenarFLP()
         {
@@ -34,6 +39,23 @@ namespace AppBanco_V1._1
                     flpTransacciones.Controls.Add(getButton(item));
                 }
             }
+        }
+
+        public void Actualizar()
+        {
+            this.cuentaTransaccion.SaldoNeto = 0;
+            foreach (var item in listaTransaccionUnica.GetTransacciones())
+            {
+                if (item.Tipo == "Abono")
+                {
+                    this.cuentaTransaccion.SaldoNeto += item.Monto;
+                }
+                else if (item.Tipo == "Retiro")
+                {
+                    this.cuentaTransaccion.SaldoNeto -= item.Monto;
+                }
+            }
+            control.Asignar(cuentaTransaccion);
         }
         public Button getButton(Transaccion a)
         {
@@ -81,6 +103,8 @@ namespace AppBanco_V1._1
                 listaTransaccionUnica.AddTransc(transaccionArchivo);
             }
             lectura.Close();
+            Actualizar();
+            //MessageBox.Show(cuentaTransaccion.SaldoNeto.ToString() + "HI");
         }
 
         public void Escribir()
@@ -112,7 +136,7 @@ namespace AppBanco_V1._1
 
         private void btnRetiro_Click(object sender, EventArgs e)
         {
-            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion( cuentaTransaccion);
+            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(cuentaTransaccion, this.control, this.frm);
             frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed; ;
             frmNuevaTransaccion.ShowDialog();
         }
@@ -121,6 +145,12 @@ namespace AppBanco_V1._1
         {
             Leer();
             llenarFLP();
+            Actualizar();
+        }
+
+        private void FrmCuentaTransacciones_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

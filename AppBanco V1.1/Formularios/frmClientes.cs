@@ -87,9 +87,16 @@ namespace AppBank_V1._1
         {
             ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
             Cliente cliente = control.Tag as Cliente;
-            frmCuentas frmCuentas = new frmCuentas(cliente);
+            frmCuentas frmCuentas = new frmCuentas(cliente,control);
+            frmCuentas.Load += FrmCuentas_Load;
             frmCuentas.ShowDialog();
         }
+
+        private void FrmCuentas_Load(object? sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
         private void btnAgregarCuenta_Click(object sender, EventArgs e)
         {
             Cliente clienteNuevo = new Cliente()

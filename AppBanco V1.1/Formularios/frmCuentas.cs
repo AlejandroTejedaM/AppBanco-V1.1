@@ -1,5 +1,6 @@
 ﻿using AppBank_V1._1;
 using BankClassSourcesDLL.Clases;
+using ClienteUserControl;
 using CuentaUserControl;
 using System;
 using System.Collections.Generic;
@@ -17,17 +18,28 @@ namespace AppBanco_V1._1
     public partial class frmCuentas : Form
     {
         ContenedorCuentas listaCuentas;
+        ClienteUserControl.ClienteUserControl clienteUserControl;
         Cliente cliente;
-        public frmCuentas(Cliente cliente)
+        int saldoTotal;
+        public frmCuentas(Cliente cliente, ClienteUserControl.ClienteUserControl control)
         {
             InitializeComponent();
             this.cliente = cliente;
+            this.clienteUserControl = control;
             listaCuentas = new ContenedorCuentas();
             Lectura();
             LlenarFlP();
+            ActualizarSaldo();
             //ActualizarSaldoTotalCliente();
         }
-
+        //public void sumaSaldos(Cuenta)
+        //{
+        //    //int aux = 0;
+        //    //foreach (var item in listaCuentas)
+        //    //{
+        //    //    aux += item;
+        //    //}
+        //}
         private void BtnAgregarCuenta_Click(object sender, EventArgs e)
         {
             Cuenta NuevaCuenta = new Cuenta()
@@ -40,6 +52,15 @@ namespace AppBanco_V1._1
             listaCuentas.AddCuenta(NuevaCuenta);
             flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
             //ActualizarSaldoTotalCliente();
+        }
+
+        public void ActualizarSaldo()
+        {
+            //txtSaldoNeto.Text = 0.ToString();
+            //foreach (var c in listaCuentas.GetCuentas())
+            //{
+            //    txtSaldoNeto.Text = c.SaldoNeto.ToString();
+            //}
         }
         public CuentaControl getControlCuenta(Cuenta cuenta)
         {
@@ -59,14 +80,19 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor,cuenta);
+            FrmCuentaTransacciones frmCuentaTransacciones = new FrmCuentaTransacciones(contenedor, cuenta, control, this);
+            frmCuentaTransacciones.Actualizar();
             frmCuentaTransacciones.FormClosed += FrmCuentaTransacciones_FormClosed;
             frmCuentaTransacciones.ShowDialog();
         }
 
         private void FrmCuentaTransacciones_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            //ActualizarSaldoTotalCliente();
+            FrmCuentaTransacciones frmCuenta = sender as FrmCuentaTransacciones;
+            frmCuenta.Actualizar();
+            Escritura();
+            Lectura();
+            ActualizarSaldo();
         }
 
         private void ControlCliente_btnNueTransactClick(object? sender, EventArgs e)
@@ -74,14 +100,17 @@ namespace AppBanco_V1._1
             CuentaControl control = sender as CuentaControl;
             Cuenta cuenta = control.Tag as Cuenta;
             ContenedorTransacciones contenedor = control.contenedorTransacciones;
-            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(cuenta);
+            FrmNuevaTransaccion frmNuevaTransaccion = new FrmNuevaTransaccion(cuenta, control, this);
+            frmNuevaTransaccion.Actualizar();
             frmNuevaTransaccion.FormClosed += FrmNuevaTransaccion_FormClosed;
             frmNuevaTransaccion.ShowDialog();
         }
 
         private void FrmNuevaTransaccion_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            //ActualizarSaldoTotalCliente();
+            Escritura();
+            Lectura();
+            ActualizarSaldo();
         }
 
         //public void ActualizarSaldoTotalCliente()
@@ -141,6 +170,7 @@ namespace AppBanco_V1._1
         }
         public void Lectura()
         {
+            listaCuentas.Clear();
             StreamReader lct = new StreamReader(rutaCuenta());
             Reader lectura = new Reader(lct);
             string[] obtenido = lectura.ReadAll().Split("\n");
@@ -151,7 +181,7 @@ namespace AppBanco_V1._1
                 {
                     Nombre = columas[0],
                     NoCuenta = int.Parse(columas[1]),
-                    SaldoNeto = int.Parse(columas[2]),
+                    //SaldoNeto = int.Parse(columas[2]),
                     //Fecha = columas[2],
                     //TipoTransaccion = bool.Parse(columas[3]),
                     //Monto = decimal.Parse(columas[4]),
@@ -194,6 +224,13 @@ namespace AppBanco_V1._1
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmCuentas_Load(object sender, EventArgs e)
+        {
+            Escritura();
+            Lectura();
+            ActualizarSaldo();
         }
 
         //private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)

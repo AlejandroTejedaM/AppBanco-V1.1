@@ -1,4 +1,5 @@
 ﻿using BankClassSourcesDLL.Clases;
+using CuentaUserControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +18,33 @@ namespace AppBanco_V1._1
         //ContenedorTransacciones contenedorTransacciones;
         List<Transaccion> listatransa;
         Cuenta cuentaAux;
-        public FrmNuevaTransaccion( Cuenta cuenta)
+        CuentaControl control;
+        frmCuentas frm;
+        public FrmNuevaTransaccion(Cuenta cuenta, CuentaControl control, frmCuentas frm)
         {
             InitializeComponent();
             listatransa = new List<Transaccion>();
             cuentaAux = cuenta;
+            this.control = control;
+            this.frm = frm;
             Leer();
         }
-
+        public void Actualizar()
+        {
+            this.cuentaAux.SaldoNeto = 0;
+            foreach (var item in listatransa)
+            {
+                if (item.Tipo == "Abono")
+                {
+                    this.cuentaAux.SaldoNeto += item.Monto;
+                }
+                else if (item.Tipo == "Retiro")
+                {
+                    this.cuentaAux.SaldoNeto -= item.Monto;
+                }
+            }
+            control.Asignar(cuentaAux);
+        }
         private void btnAbono_Click(object sender, EventArgs e)
         {
             Transaccion NuevaTransaccion = new Transaccion()
@@ -35,6 +55,10 @@ namespace AppBanco_V1._1
             NuevaTransaccion.Tipo = "Abono";
             listatransa.Add(NuevaTransaccion);
             Escribir();
+            Actualizar();
+            this.frm.Escritura();
+            this.frm.Lectura();
+            this.frm.ActualizarSaldo();
             this.Close();
         }
         public void Escribir()
@@ -69,6 +93,10 @@ namespace AppBanco_V1._1
             NuevaTransaccion.Tipo = "Retiro";
             listatransa.Add(NuevaTransaccion);
             Escribir();
+            Actualizar();
+            this.frm.Escritura();
+            this.frm.Lectura();
+            this.frm.ActualizarSaldo();
             this.Close();
         }
 

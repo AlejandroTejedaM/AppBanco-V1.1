@@ -34,19 +34,17 @@
             // 
             // flpTransacciones
             // 
-            flpTransacciones.Location = new Point(17, 50);
-            flpTransacciones.Margin = new Padding(4, 5, 4, 5);
+            flpTransacciones.Location = new Point(12, 30);
             flpTransacciones.Name = "flpTransacciones";
-            flpTransacciones.Size = new Size(1077, 530);
+            flpTransacciones.Size = new Size(754, 318);
             flpTransacciones.TabIndex = 0;
             // 
             // btnRetiro
             // 
             btnRetiro.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRetiro.Location = new Point(256, 611);
-            btnRetiro.Margin = new Padding(4, 5, 4, 5);
+            btnRetiro.Location = new Point(179, 367);
             btnRetiro.Name = "btnRetiro";
-            btnRetiro.Size = new Size(654, 88);
+            btnRetiro.Size = new Size(458, 53);
             btnRetiro.TabIndex = 21;
             btnRetiro.Text = "NUEVA TRANSACCIÓN";
             btnRetiro.UseVisualStyleBackColor = true;
@@ -54,14 +52,14 @@
             // 
             // FrmCuentaTransacciones
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnRetiro);
             Controls.Add(flpTransacciones);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmCuentaTransacciones";
             Text = "frmCuentaTransacciones";
+            Load += FrmCuentaTransacciones_Load;
             ResumeLayout(false);
         }
 
