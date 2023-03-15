@@ -37,6 +37,8 @@
             saveFileDialog1 = new SaveFileDialog();
             button1 = new Button();
             saveFileDialog2 = new SaveFileDialog();
+            label1 = new Label();
+            txtSaldoNeto = new TextBox();
             SuspendLayout();
             // 
             // btnAgregarCuenta
@@ -105,11 +107,32 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ActiveCaptionText;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Cornsilk;
+            label1.Location = new Point(138, 179);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 37);
+            label1.TabIndex = 33;
+            label1.Text = "Saldo neto";
+            // 
+            // txtSaldoNeto
+            // 
+            txtSaldoNeto.Location = new Point(297, 193);
+            txtSaldoNeto.Name = "txtSaldoNeto";
+            txtSaldoNeto.Size = new Size(282, 23);
+            txtSaldoNeto.TabIndex = 34;
+            // 
             // frmCuentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(990, 598);
+            Controls.Add(txtSaldoNeto);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(btnAgregarCuenta);
             Controls.Add(txtCuenta);
@@ -136,5 +159,7 @@
         private SaveFileDialog saveFileDialog1;
         private Button button1;
         private SaveFileDialog saveFileDialog2;
+        private Label label1;
+        private TextBox txtSaldoNeto;
     }
 }

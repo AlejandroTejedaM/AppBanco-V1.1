@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,7 @@ namespace AppBanco_V1._1
             ActualizarSaldo();
             //ActualizarSaldoTotalCliente();
         }
+
         //public void sumaSaldos(Cuenta)
         //{
         //    //int aux = 0;
@@ -46,7 +48,6 @@ namespace AppBanco_V1._1
             {
                 Nombre = txtNombre.Text,
                 NoCuenta = int.Parse(txtCuenta.Text),
-                SaldoNeto = 0,
                 //TipoTransaccion = true
             };
             listaCuentas.AddCuenta(NuevaCuenta);
@@ -56,16 +57,58 @@ namespace AppBanco_V1._1
 
         public void ActualizarSaldo()
         {
-            //txtSaldoNeto.Text = 0.ToString();
-            //foreach (var c in listaCuentas.GetCuentas())
-            //{
-            //    txtSaldoNeto.Text = c.SaldoNeto.ToString();
-            //}
+            decimal contadorSaldo = 0;
+            txtSaldoNeto.Text = "";
+            foreach (var item in listaCuentas.GetCuentas())
+            {
+                StreamReader reader = new StreamReader(@"C:\TAP\EXAMEN-2\Transacciones\" + item.NoCuenta + ".txt");
+                Reader lector = new Reader(reader);
+                string[] lineas = lector.ReadAll().Split("\n");
+                for (int i = 0; i < lineas.Length - 1; i++)
+                {
+                    string[] lineasP = lineas[i].Split(",");
+
+                    if (lineasP[1] == "Abono")
+                    {
+                        contadorSaldo += decimal.Parse(lineasP[2]);
+                    }
+                    else if (lineasP[1] == "Retiro")
+                    {
+                        contadorSaldo -= decimal.Parse(lineasP[2]);
+                    }
+                }
+                lector.Close();
+            }
+            txtSaldoNeto.Text = contadorSaldo.ToString();
         }
-        public CuentaControl getControlCuenta(Cuenta cuenta)
+        public CuentaControl getControlCuenta(Cuenta cuenta)//Alex,2222,0
         {
             ContenedorTransacciones listaTransaccionCuenta = new ContenedorTransacciones();
             CuentaControl controlCliente = new CuentaControl();
+
+            decimal contadorSaldo = 0;
+            //Historial de esa cuenta
+            StreamReader reader = new StreamReader(@"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt");
+            Reader lector = new Reader(reader);
+            string[] lineas = lector.ReadAll().Split("\n");
+            for (int i = 0; i < lineas.Length - 1; i++)
+            {
+                string[] lineasSeparada = lineas[i].Split(",");
+                //222,Retiro,343,
+                //0,1,2
+                if (lineasSeparada[1] == "Abono")
+                {
+                    contadorSaldo += decimal.Parse(lineasSeparada[2]);
+                }
+                //contadorSaldo = 343;
+                else if (lineasSeparada[1] == "Retiro")
+                {
+                    contadorSaldo -= decimal.Parse(lineasSeparada[2]);
+                }
+            }
+            lector.Close();
+            cuenta.SaldoNeto = contadorSaldo;
+
             controlCliente.Asignar(cuenta);
             controlCliente.AsignarContenedor(listaTransaccionCuenta);
             controlCliente.btnMovimientosClick += ControlCliente_btnMovimientosClick;

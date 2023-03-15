@@ -87,7 +87,7 @@ namespace AppBank_V1._1
         {
             ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
             Cliente cliente = control.Tag as Cliente;
-            frmCuentas frmCuentas = new frmCuentas(cliente,control);
+            frmCuentas frmCuentas = new frmCuentas(cliente, control);
             frmCuentas.Load += FrmCuentas_Load;
             frmCuentas.ShowDialog();
         }
