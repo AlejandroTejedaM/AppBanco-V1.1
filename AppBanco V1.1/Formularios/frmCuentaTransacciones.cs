@@ -1,4 +1,5 @@
-﻿using BankClassSourcesDLL.Clases;
+﻿using AppBanco_V1._1.Formularios;
+using BankClassSourcesDLL.Clases;
 using CuentaUserControl;
 using System;
 using System.Collections.Generic;
@@ -75,9 +76,19 @@ namespace AppBanco_V1._1
                 button.ForeColor = Color.White;
             }
             button.Tag = a;
+            button.Click += Button_Click;
 
             return button;
         }
+
+        private void Button_Click(object? sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            Transaccion transaccion = button.Tag as Transaccion;
+            frmInfoTransaccion frm =  new frmInfoTransaccion(transaccion);
+            frm.ShowDialog();
+        }
+
         public string rutaTransacciones(Cuenta cuenta)
         {
             return @"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt";

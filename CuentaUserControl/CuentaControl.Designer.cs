@@ -40,9 +40,10 @@
             // 
             // bMovimientos
             // 
-            bMovimientos.Location = new Point(3, 98);
+            bMovimientos.Location = new Point(316, 12);
+            bMovimientos.Margin = new Padding(3, 4, 3, 4);
             bMovimientos.Name = "bMovimientos";
-            bMovimientos.Size = new Size(110, 51);
+            bMovimientos.Size = new Size(126, 32);
             bMovimientos.TabIndex = 0;
             bMovimientos.Text = "MOVIMIENTOS";
             bMovimientos.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // bNuevaTrans
             // 
-            bNuevaTrans.Location = new Point(152, 98);
+            bNuevaTrans.Location = new Point(316, 57);
+            bNuevaTrans.Margin = new Padding(3, 4, 3, 4);
             bNuevaTrans.Name = "bNuevaTrans";
-            bNuevaTrans.Size = new Size(110, 51);
+            bNuevaTrans.Size = new Size(126, 68);
             bNuevaTrans.TabIndex = 1;
             bNuevaTrans.Text = "NUEVA TRANSACCIÓN";
             bNuevaTrans.UseVisualStyleBackColor = true;
@@ -64,24 +66,26 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 14);
+            label1.Location = new Point(3, 19);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(81, 25);
             label1.TabIndex = 2;
             label1.Text = "Nombre";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(98, 11);
+            txtNombre.Location = new Point(112, 15);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(164, 23);
+            txtNombre.Size = new Size(187, 27);
             txtNombre.TabIndex = 3;
             // 
             // txtSaldo
             // 
-            txtSaldo.Location = new Point(98, 69);
+            txtSaldo.Location = new Point(112, 92);
+            txtSaldo.Margin = new Padding(3, 4, 3, 4);
             txtSaldo.Name = "txtSaldo";
-            txtSaldo.Size = new Size(164, 23);
+            txtSaldo.Size = new Size(187, 27);
             txtSaldo.TabIndex = 5;
             // 
             // label2
@@ -90,17 +94,18 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 72);
+            label2.Location = new Point(3, 96);
             label2.Name = "label2";
-            label2.Size = new Size(47, 20);
+            label2.Size = new Size(59, 25);
             label2.TabIndex = 4;
             label2.Text = "Saldo";
             // 
             // txtNoCuenta
             // 
-            txtNoCuenta.Location = new Point(98, 40);
+            txtNoCuenta.Location = new Point(112, 53);
+            txtNoCuenta.Margin = new Padding(3, 4, 3, 4);
             txtNoCuenta.Name = "txtNoCuenta";
-            txtNoCuenta.Size = new Size(164, 23);
+            txtNoCuenta.Size = new Size(187, 27);
             txtNoCuenta.TabIndex = 7;
             // 
             // label3
@@ -109,17 +114,17 @@
             label3.BackColor = Color.Black;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(3, 43);
+            label3.Location = new Point(3, 57);
             label3.Name = "label3";
-            label3.Size = new Size(82, 20);
+            label3.Size = new Size(106, 25);
             label3.TabIndex = 6;
             label3.Text = "No. Cuenta";
             // 
             // CuentaControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.Gray;
             Controls.Add(txtNoCuenta);
             Controls.Add(label3);
             Controls.Add(txtSaldo);
@@ -128,8 +133,9 @@
             Controls.Add(label1);
             Controls.Add(bNuevaTrans);
             Controls.Add(bMovimientos);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CuentaControl";
-            Size = new Size(265, 155);
+            Size = new Size(447, 136);
             ResumeLayout(false);
             PerformLayout();
         }

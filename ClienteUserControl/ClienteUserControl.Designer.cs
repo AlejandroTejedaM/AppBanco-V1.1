@@ -43,9 +43,10 @@
             // 
             // pbImagenCliente
             // 
-            pbImagenCliente.Location = new Point(3, 3);
+            pbImagenCliente.Location = new Point(3, 4);
+            pbImagenCliente.Margin = new Padding(3, 4, 3, 4);
             pbImagenCliente.Name = "pbImagenCliente";
-            pbImagenCliente.Size = new Size(81, 83);
+            pbImagenCliente.Size = new Size(93, 111);
             pbImagenCliente.SizeMode = PictureBoxSizeMode.StretchImage;
             pbImagenCliente.TabIndex = 0;
             pbImagenCliente.TabStop = false;
@@ -53,56 +54,60 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(96, 8);
+            label1.Location = new Point(110, 11);
             label1.Name = "label1";
-            label1.Size = new Size(51, 15);
+            label1.Size = new Size(64, 20);
             label1.TabIndex = 1;
             label1.Text = "Nombre";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(84, 36);
+            label2.Location = new Point(96, 48);
             label2.Name = "label2";
-            label2.Size = new Size(63, 15);
+            label2.Size = new Size(78, 20);
             label2.TabIndex = 2;
             label2.Text = "No.Cliente";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(96, 62);
+            label3.Location = new Point(110, 83);
             label3.Name = "label3";
-            label3.Size = new Size(32, 15);
+            label3.Size = new Size(41, 20);
             label3.TabIndex = 3;
             label3.Text = "Sexo";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(146, 5);
+            txtNombre.Location = new Point(167, 7);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(179, 23);
+            txtNombre.Size = new Size(220, 27);
             txtNombre.TabIndex = 4;
             // 
             // txtNoCliente
             // 
-            txtNoCliente.Location = new Point(146, 32);
+            txtNoCliente.Location = new Point(167, 43);
+            txtNoCliente.Margin = new Padding(3, 4, 3, 4);
             txtNoCliente.Name = "txtNoCliente";
-            txtNoCliente.Size = new Size(114, 23);
+            txtNoCliente.Size = new Size(130, 27);
             txtNoCliente.TabIndex = 5;
             // 
             // txtEdad
             // 
-            txtEdad.Location = new Point(212, 59);
+            txtEdad.Location = new Point(242, 79);
+            txtEdad.Margin = new Padding(3, 4, 3, 4);
             txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(48, 23);
+            txtEdad.Size = new Size(54, 27);
             txtEdad.TabIndex = 6;
             // 
             // btnMostrarCuentas
             // 
-            btnMostrarCuentas.Location = new Point(266, 32);
+            btnMostrarCuentas.Location = new Point(304, 43);
+            btnMostrarCuentas.Margin = new Padding(3, 4, 3, 4);
             btnMostrarCuentas.Name = "btnMostrarCuentas";
-            btnMostrarCuentas.Size = new Size(59, 54);
+            btnMostrarCuentas.Size = new Size(83, 72);
             btnMostrarCuentas.TabIndex = 7;
             btnMostrarCuentas.Text = "Cuentas";
             btnMostrarCuentas.UseVisualStyleBackColor = true;
@@ -110,23 +115,24 @@
             // 
             // txtSexo
             // 
-            txtSexo.Location = new Point(128, 59);
+            txtSexo.Location = new Point(146, 79);
+            txtSexo.Margin = new Padding(3, 4, 3, 4);
             txtSexo.Name = "txtSexo";
-            txtSexo.Size = new Size(48, 23);
+            txtSexo.Size = new Size(54, 27);
             txtSexo.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(176, 62);
+            label4.Location = new Point(201, 83);
             label4.Name = "label4";
-            label4.Size = new Size(33, 15);
+            label4.Size = new Size(43, 20);
             label4.TabIndex = 9;
             label4.Text = "Edad";
             // 
-            // UserControl1
+            // ClienteUserControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label4);
             Controls.Add(txtSexo);
@@ -138,8 +144,9 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pbImagenCliente);
-            Name = "UserControl1";
-            Size = new Size(332, 89);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ClienteUserControl";
+            Size = new Size(390, 119);
             ((System.ComponentModel.ISupportInitialize)pbImagenCliente).EndInit();
             ResumeLayout(false);
             PerformLayout();

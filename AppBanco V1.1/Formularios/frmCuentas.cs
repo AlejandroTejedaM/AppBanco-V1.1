@@ -5,6 +5,7 @@ using CuentaUserControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace AppBanco_V1._1
             Lectura();
             LlenarFlP();
             ActualizarSaldo();
+            txtNombre.Text = cliente.Nombre;
             //ActualizarSaldoTotalCliente();
         }
 
@@ -88,25 +90,34 @@ namespace AppBanco_V1._1
 
             decimal contadorSaldo = 0;
             //Historial de esa cuenta
-            StreamReader reader = new StreamReader(@"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt");
-            Reader lector = new Reader(reader);
-            string[] lineas = lector.ReadAll().Split("\n");
-            for (int i = 0; i < lineas.Length - 1; i++)
+            if (File.Exists(@"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt") == true)
             {
-                string[] lineasSeparada = lineas[i].Split(",");
-                //222,Retiro,343,
-                //0,1,2
-                if (lineasSeparada[1] == "Abono")
+                StreamReader reader = new StreamReader(@"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt");
+                Reader lector = new Reader(reader);
+                string[] lineas = lector.ReadAll().Split("\n");
+                for (int i = 0; i < lineas.Length - 1; i++)
                 {
-                    contadorSaldo += decimal.Parse(lineasSeparada[2]);
+                    string[] lineasSeparada = lineas[i].Split(",");
+                    //222,Retiro,343,
+                    //0,1,2
+                    if (lineasSeparada[1] == "Abono")
+                    {
+                        contadorSaldo += decimal.Parse(lineasSeparada[2]);
+                    }
+                    //contadorSaldo = 343;
+                    else if (lineasSeparada[1] == "Retiro")
+                    {
+                        contadorSaldo -= decimal.Parse(lineasSeparada[2]);
+                    }
                 }
-                //contadorSaldo = 343;
-                else if (lineasSeparada[1] == "Retiro")
-                {
-                    contadorSaldo -= decimal.Parse(lineasSeparada[2]);
-                }
+                lector.Close();
             }
-            lector.Close();
+            else
+            {
+                saveFileDialog1.FileName = @"C:\TAP\EXAMEN-2\Transacciones\" + cuenta.NoCuenta + ".txt";
+                Writer writer = new Writer(saveFileDialog1.FileName);
+                writer.Close();
+            }
             cuenta.SaldoNeto = contadorSaldo;
 
             controlCliente.Asignar(cuenta);
