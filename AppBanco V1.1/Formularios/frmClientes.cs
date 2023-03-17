@@ -32,8 +32,6 @@ namespace AppBank_V1._1
                 Writer esc = new Writer(@"C:\TAP\EXAMEN-2\Clientes\ClientesBanco.txt", false);
                 foreach (var item in listaClientes.GetClientes())
                 {
-                    //PictureBox pb = item as PictureBox;
-                    //Cuenta cuenta = item as Cuenta;
                     esc.Write(item.ToString());
                 }
                 esc.Close();

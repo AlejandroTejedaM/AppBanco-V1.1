@@ -107,15 +107,11 @@ namespace AppBanco_V1._1
                     Fecha = columas[0],
                     Tipo = columas[1],
                     Monto = int.Parse(columas[2]),
-                    //Fecha = columas[2],
-                    //TipoTransaccion = bool.Parse(columas[3]),
-                    //Monto = decimal.Parse(columas[4]),
                 };
                 listaTransaccionUnica.AddTransc(transaccionArchivo);
             }
             lectura.Close();
             Actualizar();
-            //MessageBox.Show(cuentaTransaccion.SaldoNeto.ToString() + "HI");
         }
 
         public void Escribir()
@@ -125,20 +121,12 @@ namespace AppBanco_V1._1
                 Writer esc = new Writer(rutaTransacciones(cuentaTransaccion), false);
                 foreach (var item in listaTransaccionUnica.GetTransacciones())
                 {
-                    //PictureBox pb = item as PictureBox;
-                    //Cuenta cuenta = item as Cuenta;
                     esc.Write(item.ToString());
                 }
                 esc.Close();
             }
         }
 
-        //private void btnRetiro_Click(object sender, EventArgs e)
-        //{
-        //    FrmNuevaTransaccion frm = new FrmNuevaTransaccion(listaTransaccionUnica, this.cuentaTransaccion);
-        //    frm.FormClosed += Frm_FormClosed;
-        //    frm.ShowDialog();
-        //}
 
         private void Frm_FormClosed(object? sender, FormClosedEventArgs e)
         {

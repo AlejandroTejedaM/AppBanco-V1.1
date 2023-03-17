@@ -33,28 +33,17 @@ namespace AppBanco_V1._1
             LlenarFlP();
             ActualizarSaldo();
             txtNombre.Text = cliente.Nombre;
-            //ActualizarSaldoTotalCliente();
         }
 
-        //public void sumaSaldos(Cuenta)
-        //{
-        //    //int aux = 0;
-        //    //foreach (var item in listaCuentas)
-        //    //{
-        //    //    aux += item;
-        //    //}
-        //}
         private void BtnAgregarCuenta_Click(object sender, EventArgs e)
         {
             Cuenta NuevaCuenta = new Cuenta()
             {
                 Nombre = txtNombre.Text,
                 NoCuenta = int.Parse(txtCuenta.Text),
-                //TipoTransaccion = true
             };
             listaCuentas.AddCuenta(NuevaCuenta);
             flpCuentas.Controls.Add(getControlCuenta(NuevaCuenta));
-            //ActualizarSaldoTotalCliente();
         }
 
         public void ActualizarSaldo()
@@ -166,28 +155,6 @@ namespace AppBanco_V1._1
             Lectura();
             ActualizarSaldo();
         }
-
-        //public void ActualizarSaldoTotalCliente()
-        //{
-        //    if (listaCuentas != null)
-        //    {
-        //        decimal Aux = 0;
-        //        foreach (var item in listaCuentas.GetCuentas())
-        //        {
-        //            if (item.TipoTransaccion == true)
-        //            {
-        //                Aux += item.Monto;
-        //            }
-        //            else if (item.TipoTransaccion == false)
-        //            {
-        //                Aux -= item.Monto;
-        //            }
-        //        }
-        //        txtSaldoNeto.Text = Aux.ToString();
-        //    }
-        //}
-
-
         public void LlenarFlP()
         {
             if (!listaCuentas.vacio())
@@ -287,13 +254,6 @@ namespace AppBanco_V1._1
             ActualizarSaldo();
         }
 
-        //private void ControlCliente_BtnMostrarCuentasClick(object? sender, EventArgs e)
-        //{
-        //    ClienteUserControl.ClienteUserControl control = sender as ClienteUserControl.ClienteUserControl;
-        //    Cliente cliente = control.Tag as Cliente;
-        //    frmCuentas frmCuentas = new frmCuentas();
-        //    frmCuentas.ShowDialog();
-        //}
 
     }
 }
